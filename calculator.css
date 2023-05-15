@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+* {
+    margin: 0;
+}
+
+#title {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    color: white;
+    background-color: #1877f2;
+}
+
+#calculator {
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#display-panel {
+    font-family: 'Rubik', sans-serif;
+    width: 260px;
+    height: 100px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    text-align: end;
+}
+
+#display-panel span {
+    display: inline-block;
+    padding-bottom: 40px;
+    font-size: 20px;
+}
+
+#keypad {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* padding: 10px; */
+}
+
+#equal-to {
+    width: 130px;
+}
+
+.calc-buttons {
+    font-family: 'Rubik', sans-serif;
+    padding: 0;
+    font-size: 20px;
+    width: 62px;
+    height: 62px;
+    background-color: rgb(220, 220, 220);
+    border: none;
+    border-radius: 10px;
+    transition: all 250ms;
+}
+
+.calc-buttons:focus {
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.calc-buttons:hover {
+    transform: translateY(-1px);
+}
+
+.calc-buttons:active {
+    background-color: #519af9;
+    border-color: rgba(0, 0, 0, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+[id*="-row"] {
+    padding: 2px;
+}
+
