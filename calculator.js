@@ -23,7 +23,11 @@ $(document).ready(function () {
         } else if (input == "=") {
             // evaluate the expression and update total and result
             handleTotal();
-            $("#result").text(total);
+            if (result !== "" && num2 === "") {
+                $("#user-operations").text(total);
+            } else {
+                $("#result").text(total);
+            }
         } else if (input === ".") {
             if ((operator === "" && !num1.includes(".")) || (operator !== "" && !num2.includes("."))) {
                 $("#user-operations").append(input);
