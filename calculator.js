@@ -43,7 +43,12 @@ $(document).ready(function () {
                 // update the operator if only num1 has been entered
                 operator = input;
                 $("#user-operations").append(input);
-            } else if (num1 !== "" && num2 === "" && operator !== "") {
+            } else if (num1 === "" && num2 === "" & operator === "") {
+                num1 = 0;
+                if (!isNaN(input)) {
+                    num1 += parseFloat(input);
+                }
+            }  else if (num1 !== "" && num2 === "" && operator !== "") {
                 // replace the previous operator with the new one
                 operator = input;
                 calculations = calculations.slice(0, -1) + input;
@@ -93,11 +98,11 @@ function handleTotal() {
 
 function percentage() {
     let percent;
-    if (total !== "") {
+    if (total !== "" && num2 === "") {
         percent = +total / 100;
         total = percent.toString();
         $("#result").text(total);
-    } else if (num2 !== "") {
+    } else if (num2 !== "" && operator !== "") {
         percent = +num2 / 100;
         num2 = percent.toString();
         $("#user-operations").text(num1 + operator + num2);
