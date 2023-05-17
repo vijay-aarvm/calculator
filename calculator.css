@@ -16,12 +16,24 @@
     background-color: #1877f2;
 }
 
+#calc-wrap {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #calculator {
-    padding-top: 60px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 2px solid rgb(46, 46, 46);
+    border-radius: 5px;
+    width: 280px;
+    height: 470px;
+    background-color: grey;
 }
 
 #display-panel {
@@ -29,7 +41,7 @@
     display: grid;
     overflow: auto;
     width: 260px;
-    height: 100px;
+    height: 120px;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 5px;
     text-align: end;
