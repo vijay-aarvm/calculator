@@ -26,9 +26,7 @@
 
 #display-panel {
     font-family: 'Rubik', sans-serif;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* flex-wrap: wrap; */
+    display: grid;
     overflow: auto;
     width: 260px;
     height: 100px;
@@ -38,7 +36,7 @@
 }
 
 #display-panel span {
-    display: inline-block;
+    /* display: inline-block; */
     padding-bottom: 20px;
     font-size: 20px;
 }

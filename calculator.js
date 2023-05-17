@@ -52,7 +52,7 @@ $(document).ready(function () {
                 if (!isNaN(input)) {
                     num1 += parseFloat(input);
                 }
-            }  else if (num1 !== "" && num2 === "" && operator !== "") {
+            } else if (num1 !== "" && num2 === "" && operator !== "") {
                 // replace the previous operator with the new one
                 operator = input;
                 calculations = calculations.slice(0, -1) + input;
@@ -81,10 +81,12 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $(".calc-buttons").keydown(function (e) {
-        let out, ex = e.keyCode || e.which;
-        let input = $(this).text();
+        let input = e.key;
         let calculations = $("#user-operations").text();
-        if (e.key == "Delete") {
+        let allowedKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "/", "*", "%", ".", "Delete", "Backspace", "Enter"];
+        if (!allowedKeys.includes(input)) {
+            return;
+        } else if (input === "Delete") {
             $("#user-operations").text("");
             $("#result").text("");
             // reset num1, num2, operator, and total
@@ -92,7 +94,7 @@ $(document).ready(function () {
             num2 = "";
             operator = "";
             total = "";
-        } else if (e.key == "Backspace") {
+        } else if (input === "Backspace") {
             $("#user-operations").text(calculations.slice(0, -1));
             // remove the last character from num1 or num2
             if (num2 !== "") {
@@ -102,7 +104,7 @@ $(document).ready(function () {
             } else if (num1 !== "") {
                 num1 = num1.slice(0, -1);
             }
-        } else if (e.key == "Enter") {
+        } else if (input === "Enter") {
             // evaluate the expression and update total and result
             handleTotal();
             if (result !== "" && num2 === "") {
@@ -110,7 +112,7 @@ $(document).ready(function () {
             } else {
                 $("#result").text(total);
             }
-        } else if (e.key == ".") {
+        } else if (input === ".") {
             if ((operator === "" && !num1.includes(".")) || (operator !== "" && !num2.includes("."))) {
                 $("#user-operations").append(input);
                 // add the decimal point to num1 or num2
@@ -120,11 +122,11 @@ $(document).ready(function () {
                     num2 += input;
                 }
             }
-        } else if (e.key == "%") {
+        } else if (input === "%") {
             // calculate the percentage and update num2
             total = percentage();
             $("#user-operations").text(num1 + operator + num2);
-        } else if (e.key == "add" || e.key == "subtract" || e.key == "multiply " || e.key == "divide ") {
+        } else if (input === "+" || input === "-" || input === "*" || input === "/") {
             if (num1 !== "" && num2 === "" && operator === "") {
                 // update the operator if only num1 has been entered
                 operator = input;
@@ -134,7 +136,7 @@ $(document).ready(function () {
                 if (!isNaN(input)) {
                     num1 += parseFloat(input);
                 }
-            }  else if (num1 !== "" && num2 === "" && operator !== "") {
+            } else if (num1 !== "" && num2 === "" && operator !== "") {
                 // replace the previous operator with the new one
                 operator = input;
                 calculations = calculations.slice(0, -1) + input;
