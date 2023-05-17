@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    // $(document).focus();
     $(".calc-buttons").click(function () {
         let input = $(this).text();
         let calculations = $("#user-operations").text();
@@ -76,11 +77,8 @@ $(document).ready(function () {
             }
         }
     });
-});
 
-
-$(document).ready(function () {
-    $(".calc-buttons").keydown(function (e) {
+    $(document).keydown(function (e) {
         let input = e.key;
         let calculations = $("#user-operations").text();
         let allowedKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "/", "*", "%", ".", "Delete", "Backspace", "Enter"];
@@ -160,7 +158,13 @@ $(document).ready(function () {
             }
         }
     });
+
 });
+
+
+// $(document).ready(function () {
+
+// });
 
 let num1 = "";
 let num2 = "";
