@@ -202,4 +202,3 @@ function percentage() {
     return percent;
 }
 
-
